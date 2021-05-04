@@ -108,3 +108,49 @@
     boolean oneEven = intList.stream().anyMatch(i -> i % 2 == 0);
     boolean noneMultipleOfThree = intList.stream().noneMatch(i -> i % 3 == 0);
    ```
+
+### Java Stream Specializations
+
+- Stream is a stream of object references. However, there are also the IntStream, LongStream, and DoubleStream – which are primitive specializations for int, long and double respectively.
+- These specialized streams do not extend Stream but extend BaseStream on top of which Stream is also built. As a consequence, not all operations supported by Stream are present in these stream implementations. For example, the standard min() and max() take a comparator, whereas the specialized streams do not
+- One important distinction to note:
+  `Stream.of(1, 2, 3)`
+  This returns a **Stream&lt;Integer&gt;** and not **IntStream**.
+
+  Similarly, using map() instead of mapToInt() returns a Stream<Integer> and not an IntStream.
+
+### Reduction Operations
+
+- A reduction operation (also called as fold) takes a sequence of input elements and combines them into a single summary result by repeated application of a combining operation. Few reduction operations are findFirst(), min() and max().
+
+1. reduce
+
+   ```
+   T reduce(T identity, BinaryOperator<T> accumulator)
+   ```
+
+   where identity is the starting value and accumulator is the binary operation we repeated apply.
+
+   ```
+   Double sumSal = empList.stream()
+                     .map(Employee::getSalary)
+                     .reduce(0.0, Double::sum);
+   ```
+
+### Advanced collect
+
+1. joining - Collectors.joining() will insert the delimiter between the two String elements of the stream.
+   ```
+   String empNames = empList.stream()
+         .map(Employee::getName)
+         .collect(Collectors.joining(", "))
+         .toString();
+   ```
+2. toSet - To get a set out of stream elements.
+   ```
+   Set<String> empNames = empList.stream()
+            .map(Employee::getName)
+            .collect(Collectors.toSet());
+   ```
+3. toCollection
+   - We can use Collectors.toCollection() to extract the elements into any other collection by passing in a Supplier<Collection>. We can also use a constructor reference for the Supplier:
