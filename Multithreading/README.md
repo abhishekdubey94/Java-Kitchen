@@ -13,12 +13,11 @@
 ### Thread states
 
 - Threads exist in several states. Here is a general description.
-  - A thread can be running.
-    It can be ready to run as soon as it gets CPU time. A running thread can be suspended, which
-    temporarily halts its activity. A suspended thread can then be resumed, allowing it to pick up
-    where it left off. A thread can be blocked when waiting for a resource. At any time, a thread
-    can be terminated, which halts its execution immediately. Once terminated, a thread
+  - A thread can be **runnable**. It can be ready to run as soon as it gets CPU time.
+  - A **running** thread can be **suspended**, which temporarily halts its activity. A suspended thread can then be resumed, allowing it to pick up where it left off. A thread can be blocked when waiting for a resource.
+  - At any time, a thread can be **terminated**, which halts its execution immediately. Once terminated, a thread
     cannot be resumed.
+    ![](img\threadLifecycle.JPG)
 - When a Java program starts up, one thread begins running immediately. This is usually
   called the main thread of your program, because it is the one that is executed when your
   program begins. The main thread is important for two reasons:
