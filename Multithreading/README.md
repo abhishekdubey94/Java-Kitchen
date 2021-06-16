@@ -18,6 +18,7 @@
   - A **running** thread can be **suspended**, which temporarily halts its activity. A suspended thread can then be resumed, allowing it to pick up where it left off. A thread can be blocked when waiting for a resource.
   - At any time, a thread can be **terminated**, which halts its execution immediately. Once terminated, a thread
     cannot be resumed.
+
     <br>
     <img src="img\threadLifecycle.JPG"
      alt="thread life cycle"
