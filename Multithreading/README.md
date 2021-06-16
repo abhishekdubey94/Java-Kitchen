@@ -1,4 +1,4 @@
-### Multithreading
+### [Multithreading](https://docs.oracle.com/javase/tutorial/essential/concurrency/procthread.html)
 
 - There are two distinct types of multitasking:
   - Process-based
@@ -19,11 +19,10 @@
   - At any time, a thread can be **terminated**, which halts its execution immediately. Once terminated, a thread
     cannot be resumed.
 
-    <br>
     <img src="img\threadLifecycle.JPG"
      alt="thread life cycle"
      style="float: left; margin-right: 10px;" />
-    <br>
+    _src-_ https://www.geeksforgeeks.org/lifecycle-and-states-of-a-thread-in-java/
 
 - When a Java program starts up, one thread begins running immediately. This is usually
   called the main thread of your program, because it is the one that is executed when your
@@ -31,3 +30,9 @@
   - It is the thread from which other “child” threads will be spawned.
   - Often, it must be the last thread to finish execution because it performs various
     shutdown actions.
+
+### Synchronization in Multithreading
+
+- Synchronization is built around an internal entity known as the intrinsic lock or monitor lock. (The API specification often refers to this entity simply as a "monitor.")
+- Every object has an intrinsic lock associated with it. By convention, a thread that needs exclusive and consistent access to an object's fields has to acquire the object's intrinsic lock before accessing them, and then release the intrinsic lock when it's done with them. A thread is said to own the intrinsic lock between the time it has acquired the lock and released the lock. As long as a thread owns an intrinsic lock, no other thread can acquire the same lock. The other thread will block when it attempts to acquire the lock.
+- When a thread releases an intrinsic lock, a happens-before relationship is established between that action and any subsequent acquisition of the same lock.
