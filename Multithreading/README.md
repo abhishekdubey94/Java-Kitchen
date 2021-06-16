@@ -18,6 +18,9 @@
   - At any time, a thread can be **terminated**, which halts its execution immediately. Once terminated, a thread
     cannot be resumed.
     ![](img\threadLifecycle.JPG)
+    <img src="img\threadLifecycle.JPG"
+     alt="Markdown Monster icon"
+     style="float: left; margin-right: 10px;" />
 - When a Java program starts up, one thread begins running immediately. This is usually
   called the main thread of your program, because it is the one that is executed when your
   program begins. The main thread is important for two reasons:
