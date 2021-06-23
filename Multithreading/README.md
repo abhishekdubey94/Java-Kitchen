@@ -1,5 +1,13 @@
 ### [Multithreading](https://docs.oracle.com/javase/tutorial/essential/concurrency/procthread.html)
 
+## Contents
+
+1. [Process based and Thread based](#process-based-and-thread-based)
+2. [Thread States](#thread-states)
+3. [Synchronization in Multithreading](#synchronization-in-multithreading)
+
+### Process based and Thread based
+
 - There are two distinct types of multitasking:
   - Process-based
   - Thread-based.
@@ -33,6 +41,7 @@
 
 ### Synchronization in Multithreading
 
+- In a multi-threaded environment, a race condition occurs when two or more threads attempt to update **mutable shared data** at the same time.
 - Synchronization is built around an internal entity known as the intrinsic lock or monitor lock. (The API specification often refers to this entity simply as a "monitor.")
 - Every object has an intrinsic lock associated with it. By convention, a thread that needs exclusive and consistent access to an object's fields has to acquire the object's intrinsic lock before accessing them, and then release the intrinsic lock when it's done with them. A thread is said to own the intrinsic lock between the time it has acquired the lock and released the lock. As long as a thread owns an intrinsic lock, no other thread can acquire the same lock. The other thread will block when it attempts to acquire the lock.
 - When a thread releases an intrinsic lock, a happens-before relationship is established between that action and any subsequent acquisition of the same lock.
