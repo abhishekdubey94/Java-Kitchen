@@ -13,8 +13,11 @@ class PrintSequenceRunnable implements Runnable {
 
 	@Override
 	public void run() {
+		System.out.println(Thread.currentThread().getName()+":Outside while");
 		while (number < PRINT_NUMBERS_UPTO-1) {
+			System.out.println(Thread.currentThread().getName()+":inside while");
 			synchronized (lock) {
+				System.out.println(Thread.currentThread().getName()+":Acquired Lock");
 				while (number % 3 != remainder) {
 					try {
 						lock.wait();
