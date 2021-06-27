@@ -80,6 +80,23 @@
       .collect(Collectors.toList());
    ```
 
+8. **peek** - As the forEach() is a terminal operation, we cannot perform any action post forEach(). peek() performs the specified operation on each element of the stream and returns a new stream which can be used further. peek() is an intermediate operation.
+
+   ```
+   Employee[] arrayOfEmps = {
+        new Employee(1, "Jeff Bezos", 100000.0),
+        new Employee(2, "Bill Gates", 200000.0),
+        new Employee(3, "Mark Zuckerberg", 300000.0)
+    };
+
+    List<Employee> empList = Arrays.asList(arrayOfEmps);
+
+    empList.stream()
+      .peek(e -> e.salaryIncrement(10.0))
+      .peek(System.out::println)
+      .collect(Collectors.toList());
+   ```
+
 ### Comparison Based Stream Operation
 
 1. **sorted** - This sorts the stream elements based on the comparator passed we pass into it. Short-circuiting will not be applied for sorted().
@@ -112,7 +129,7 @@
 ### Java Stream Specializations
 
 - Stream is a stream of object references. However, there are also the IntStream, LongStream, and DoubleStream – which are primitive specializations for int, long and double respectively.
-- These specialized streams do not extend Stream but extend BaseStream on top of which Stream is also built. As a consequence, not all operations supported by Stream are present in these stream implementations. For example, the standard min() and max() take a comparator, whereas the specialized streams do not
+- These specialized streams do not extend Stream but extend **BaseStream** on top of which **Stream** is also built. As a consequence, not all operations supported by Stream are present in these stream implementations. For example, the standard min() and max() take a comparator, whereas the specialized streams do not
 - One important distinction to note:
   `Stream.of(1, 2, 3)`
   This returns a **Stream&lt;Integer&gt;** and not **IntStream**.
