@@ -171,3 +171,8 @@
    ```
 3. toCollection
    - We can use Collectors.toCollection() to extract the elements into any other collection by passing in a Supplier<Collection>. We can also use a constructor reference for the Supplier:
+   ```
+   Vector<String> empNames = empList.stream()
+            .map(Employee::getName)
+            .collect(Collectors.toCollection(Vector::new));
+   ```
