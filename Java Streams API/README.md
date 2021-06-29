@@ -176,3 +176,19 @@
             .map(Employee::getName)
             .collect(Collectors.toCollection(Vector::new));
    ```
+4. partitionBy
+   - We can partition a stream into two – based on whether the elements satisfy certain criteria or not.
+   ```
+   List<Integer> intList = Arrays.asList(2, 4, 5, 6, 8);
+    Map<Boolean, List<Integer>> isEven = intList.stream().collect(
+      Collectors.partitioningBy(i -> i % 2 == 0));
+   ```
+   - Here, the stream is partitioned into a Map, with even and odds stored as true and false keys.
+5. [groupingBy](https://www.baeldung.com/java-groupingby-collector)
+   - groupingBy() offers advanced partitioning – where we can partition the stream into more than just two groups.
+   - It takes a classification function as its parameter. This classification function is applied to each element of the stream.
+   - The value returned by the function is used as a key to the map that we get from the groupingBy collector
+   ```
+   Map<Character, List<Employee>> groupByAlphabet = empList.stream().collect(
+      Collectors.groupingBy(e -> new Character(e.getName().charAt(0))));
+   ```
