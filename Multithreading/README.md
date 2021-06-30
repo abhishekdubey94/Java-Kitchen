@@ -56,6 +56,7 @@
 <summary>How do you handle an unhandled exception in the thread ?</summary>
 <br>
 Exceptions are local to a thread, and your main thread or other thread doesn't actually see the run method. The call to join simply waits for it to be done. An exception that is thrown in a thread and never caught terminates it, which is why join returns on your main thread, but the exception itself is lost. We can use <strong>UncaughtExceptionHandler</strong>.
+<br>
   <pre>
     Thread.UncaughtExceptionHandler h = new Thread.UncaughtExceptionHandler() {
         @Override
