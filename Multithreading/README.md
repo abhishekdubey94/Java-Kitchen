@@ -49,3 +49,34 @@
   - Instance methods
   - Static methods
   - Code blocks
+
+### Questions
+
+<details>
+<summary>How do you handle an unhandled exception in the thread ?</summary>
+<br>
+Exceptions are local to a thread, and your main thread or other thread doesn't actually see the run method. The call to join simply waits for it to be done. An exception that is thrown in a thread and never caught terminates it, which is why join returns on your main thread, but the exception itself is lost. We can use <strong>UncaughtExceptionHandler</strong>.
+  <pre>
+    Thread.UncaughtExceptionHandler h = new Thread.UncaughtExceptionHandler() {
+        @Override
+        public void uncaughtException(Thread th, Throwable ex) {
+            System.out.println("Uncaught exception: " + ex);
+        }
+    };
+    Thread t = new Thread() {
+        @Override
+        public void run() {
+            System.out.println("Sleeping ...");
+            try {
+                Thread.sleep(1000);
+            } catch (InterruptedException e) {
+                System.out.println("Interrupted.");
+            }
+            System.out.println("Throwing exception ...");
+            throw new RuntimeException();
+        }
+    };
+    t.setUncaughtExceptionHandler(h);
+    t.start();
+  </pre>
+</details>
