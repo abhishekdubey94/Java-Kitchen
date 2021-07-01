@@ -81,3 +81,73 @@ Exceptions are local to a thread, and your main thread or other thread doesn't a
     t.start();
   </pre>
 </details>
+
+<details>
+<summary>You have thread T1, T2, and T3. How will you ensure that thread T2 is run after T1 and thread T3 after T2 ?</summary>
+</details>
+
+<details>
+<summary>What is the advantage of the new Lock interface over a synchronized block in Java? You need to implement a high-performance cache, which allows multiple readers, but how will you implement the single writer to keep the integrity?</summary>
+</details>
+
+<details>
+<summary>What are differences between wait and sleep method in Java ?</summary>
+<br>
+The only major difference is to wait to release the lock or monitor, while sleep doesn't release any lock or monitor while waiting.
+</details>
+
+<details>
+<summary>Write code to implement blocking queue in Java.</summary>
+<br>
+</details>
+
+<details>
+<summary>Write code to solve the produce consumer problem in Java.</summary>
+<br>
+https://www.java67.com/2015/12/producer-consumer-solution-using-blocking-queue-java.html
+</details>
+
+<details>
+<summary>Write a program that will result in a deadlock. How will you fix deadlock in Java ?</summary>
+<br>
+https://javarevisited.blogspot.com/2018/08/how-to-avoid-deadlock-in-java-threads.html#axzz6zEd8GH3v
+</details>
+
+<details>
+<summary>What is an atomic operation? What are atomic operations in Java?</summary>
+<br>
+https://javarevisited.blogspot.com/2011/04/synchronization-in-java-synchronized.html#axzz6zEd8GH3v
+</details>
+
+<details>
+<summary>What is a volatile keyword in Java? How do you use it? How is it different from the synchronized method in Java?</summary>
+<br>
+</details>
+
+<details>
+<summary>What is a race condition? How will you find and solve race condition?</summary>
+<br>
+</details>
+
+<details>
+<summary>Why do we call start() method which in turns calls run() method, why not we directly call run() method?</summary>
+<br>
+</details>
+<details>
+<summary>How will you awake a blocked thread in Java?</summary>
+<br>
+</details>
+<details>
+<summary>What is the difference between CyclicBarriar and CountdownLatch in Java?</summary>
+<br>
+</details>
+<details>
+<summary>What is an immutable object? How does it help in writing a concurrent application?</summary>
+<br>
+</details>
+<details>
+<summary>Difference between executorservice, executors and ForkJoinPool</summary>
+<br>
+https://javarevisited.blogspot.com/2017/02/difference-between-executor-executorservice-and-executors-in-java.html#axzz6zEd8GH3v
+https://javarevisited.blogspot.com/2016/12/difference-between-executor-framework-and-ForkJoinPool-in-Java.html#axzz6zEd8GH3v
+</details>
