@@ -84,6 +84,8 @@ Exceptions are local to a thread, and your main thread or other thread doesn't a
 
 <details>
 <summary>You have thread T1, T2, and T3. How will you ensure that thread T2 is run after T1 and thread T3 after T2 ?</summary>
+<br>
+It can be achieved by using the <strong>join</strong> method of Thread class.
 </details>
 
 <details>
