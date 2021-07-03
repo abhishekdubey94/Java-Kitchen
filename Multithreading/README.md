@@ -90,6 +90,8 @@ It can be achieved by using the <strong>join</strong> method of Thread class.
 
 <details>
 <summary>What is the advantage of the new Lock interface over a synchronized block in Java? You need to implement a high-performance cache, which allows multiple readers, but how will you implement the single writer to keep the integrity?</summary>
+<br>
+The major advantage of lock interfaces on multithreaded and concurrent programming is that they provide two separate locks for reading and writing, which enables you to write high-performance data structures, like ConcurrentHashMap and conditional blocking.
 </details>
 
 <details>
